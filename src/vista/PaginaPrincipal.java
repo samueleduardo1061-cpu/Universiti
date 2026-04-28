@@ -7,10 +7,41 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName());
 
-   
+   Universidad universidad = new Universidad();
+   ArrayList <Curso> cursos = new ArrayList<>();
 
     public PaginaPrincipal() {
         initComponents();
+        
+        Estudiante estudiante0 = new Estudiante("Pepito","Perez","123");
+        Estudiante estudiante1 = new Estudiante("Sandra", "Martinez", "555");
+        Estudiante estudiante2 = new Estudiante("Ramirez", "Lisboa", "444");
+        Estudiante estudiante3 = new Estudiante("Nacho", "Ah, gomensai", "666");
+        
+        area_aspirantes.append(estudiante0.getInformacion());
+        area_aspirantes.append("\n ");
+        area_aspirantes.append(estudiante1.getInformacion());
+        area_aspirantes.append("\n ");
+        area_aspirantes.append(estudiante2.getInformacion());
+        area_aspirantes.append("\n ");
+        area_aspirantes.append(estudiante3.getInformacion());
+        area_aspirantes.append("\n ");
+        
+        universidad.agregarEstudiante(estudiante0);
+        universidad.agregarEstudiante(estudiante1);
+        universidad.agregarEstudiante(estudiante2);
+        universidad.agregarEstudiante(estudiante3);
+        
+        Curso curso0 = new Curso("Billar" ,"El arte del Pool clásico");
+        Curso curso1 = new Curso("Pscina", "El arte de nadar");
+        Curso curso2 = new Curso("Derecho Romano", "El arte de manipular");
+        Curso curso3 = new Curso("Aritmetica avanzada", "El arte de sumar");
+        
+        cursos.add(curso0);
+        cursos.add(curso1);
+        cursos.add(curso2);
+        cursos.add(curso3);
+        
 
 
 
@@ -100,6 +131,16 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         txtcursosconocidos = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         areacursos = new javax.swing.JTextArea();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        area_aspirantes = new javax.swing.JTextArea();
+        jPanel15 = new javax.swing.JPanel();
+        txt_identificacion_estudiante = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txt_curso_matricular = new javax.swing.JTextField();
+        btn_matricular_estudiante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -743,6 +784,94 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Cursos", jPanel5);
 
+        jPanel13.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aspirantes a la universidad del buen pasto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        area_aspirantes.setColumns(20);
+        area_aspirantes.setRows(5);
+        jScrollPane4.setViewportView(area_aspirantes);
+
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Matricular a estudiante", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        jLabel4.setText("Ingrese identificación del estudiante a matricular");
+
+        jLabel5.setText("Curso a matricular:");
+
+        btn_matricular_estudiante.setText("Matricular");
+        btn_matricular_estudiante.addActionListener(this::btn_matricular_estudianteActionPerformed);
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_matricular_estudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_identificacion_estudiante, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+                            .addComponent(txt_curso_matricular))))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_identificacion_estudiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_curso_matricular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(btn_matricular_estudiante)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 270, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab5", jPanel12);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -827,6 +956,29 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txttitulo1ActionPerformed
 
+    private void btn_matricular_estudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_matricular_estudianteActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+            
+            for (Estudiante u : universidad.getEstudiantes()) {
+                
+                if (u.getIdentificacion().equalsIgnoreCase(txt_identificacion_estudiante.getText()) ) {
+                    
+                    
+                }
+            }
+            
+            //for (Curso c : ) {
+            
+        
+            
+            
+        
+        
+    }//GEN-LAST:event_btn_matricular_estudianteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -854,7 +1006,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aaaaaaa;
+    private javax.swing.JTextArea area_aspirantes;
     private javax.swing.JTextArea areacursos;
+    private javax.swing.JButton btn_matricular_estudiante;
     private javax.swing.JButton btn_registrar_estudiante;
     private javax.swing.JButton btnagregarlugar1;
     private javax.swing.JButton btnregistrar_docente;
@@ -888,6 +1042,8 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -895,7 +1051,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -911,6 +1070,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_descripcion;
@@ -921,8 +1081,10 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lbllugar1;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtId_d;
+    private javax.swing.JTextField txt_curso_matricular;
     private javax.swing.JTextField txt_descripcion_curso;
     private javax.swing.JTextField txt_duracion_curso;
+    private javax.swing.JTextField txt_identificacion_estudiante;
     private javax.swing.JTextField txt_nombre_curso;
     private javax.swing.JTextField txt_posicion;
     private javax.swing.JTextField txt_posicion1;

@@ -19,6 +19,9 @@ public class Estudiante extends Persona{
         mis_cursos.add(curso);
     }
     
+   //nyaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+   //aaaaaaaaaaaaaaaaaaa
+    
 
 
     public ArrayList<Curso> getMis_cursos() {

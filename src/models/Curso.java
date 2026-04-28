@@ -7,14 +7,13 @@ public class Curso {
     private String nombrecurso;
     private Profesor profesor;
     private String descripcion;
-    private String semestre;
+
     private String numeroestudiantes;
     private String teacher;
 
-    public Curso(String nombrecurso, String descripcion, String semestre) {
+    public Curso(String nombrecurso, String descripcion) {
         this.nombrecurso = nombrecurso;
         this.descripcion = descripcion;
-        this.semestre = semestre;
     }
 
     public Curso(String nombrecurso) {
@@ -22,17 +21,16 @@ public class Curso {
     }
     
 
-    public Curso(String nombrecurso, String descripcion, String semestre, Profesor profesor) {
+    public Curso(String nombrecurso, String descripcion, Profesor profesor) {
         this.nombrecurso = nombrecurso;
         this.descripcion = descripcion;
-        this.semestre = semestre;
+
         this.profesor = profesor;
     }
 
-    public Curso(String nombrecurso, String profesor, String semestre, String descripcion) {
+    public Curso(String nombrecurso, String profesor, String descripcion) {
         this.nombrecurso = nombrecurso;
         this.descripcion = descripcion;
-        this.semestre = semestre;
         this.teacher = profesor;
     }
     
@@ -60,14 +58,6 @@ public class Curso {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(String semestre) {
-        this.semestre = semestre;
     }
 
     public String getNumeroestudiantes() {

@@ -83,7 +83,7 @@ public class NewJFrame extends javax.swing.JFrame {
             else {
                 JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
             }
-            //aaa
+            
                 
             
         }

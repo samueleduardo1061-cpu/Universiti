@@ -15,7 +15,7 @@ public class Profesor extends Persona {
         setDepartamento(departamento);
 
     }
-
+   
     public Profesor(String nombre, String apellido, String identificacion, Departamento departamento, Curso curso) {
         setNombre(nombre);
         setApellido(apellido);

@@ -15,8 +15,8 @@ public class Profesor extends Persona {
         setDepartamento(departamento);
 
     }
-    
-        public Profesor(String nombre, String apellido, String identificacion, Departamento departamento, Curso curso) {
+
+    public Profesor(String nombre, String apellido, String identificacion, Departamento departamento, Curso curso) {
         setNombre(nombre);
         setApellido(apellido);
         setIdentificacion(identificacion);
@@ -43,16 +43,6 @@ public class Profesor extends Persona {
 
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
-    }
-    
-    public void registrarCursoProfe(String nombrecurso)
-    {
-        //es fuerte porque la instancia estudios nacio o se crea 
-      Curso curso = new Curso(nombrecurso);
-      mis_cursos.add(curso);
-        JOptionPane.showMessageDialog(null, "Curso Registrado");
-    
-    }
-    
 
+    }
 }

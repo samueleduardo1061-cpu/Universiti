@@ -1,6 +1,6 @@
 package models;
 
-import javax.swing.JTextArea;
+import java.util.ArrayList;
 
 public class Curso {
 
@@ -8,18 +8,20 @@ public class Curso {
     private Profesor profesor;
     private String descripcion;
 
-    private String numeroestudiantes;
-    private String teacher;
+    private ArrayList<Estudiante> estudiantes = new ArrayList<>();
+
+    public void inscribirEstudiante(Estudiante estudiante) {
+        estudiantes.add(estudiante);
+    }
+
+    public ArrayList<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
 
     public Curso(String nombrecurso, String descripcion) {
         this.nombrecurso = nombrecurso;
         this.descripcion = descripcion;
     }
-
-    public Curso(String nombrecurso) {
-        this.nombrecurso = nombrecurso;
-    }
-    
 
     public Curso(String nombrecurso, String descripcion, Profesor profesor) {
         this.nombrecurso = nombrecurso;
@@ -28,13 +30,18 @@ public class Curso {
         this.profesor = profesor;
     }
 
-    public Curso(String nombrecurso, String profesor, String descripcion) {
-        this.nombrecurso = nombrecurso;
-        this.descripcion = descripcion;
-        this.teacher = profesor;
-    }
-    
+    public String getInformacion() {
+        String info = "\n Nombre del curso: " + getNombrecurso()
+                + "\n Descripción del curso: " + getDescripcion()
+                + "\n Profesor del curso: " + profesor.getNombre() + " " + profesor.getApellido() + "\nDepartamento profesor:  " + profesor.getDepartamento().toString()
+                + "\n Estudiantes inscritos: ";
 
+        for (Estudiante e : estudiantes) {
+            info += "\n   - " + e.getNombre() + " " + e.getApellido();
+        }
+
+        return info;
+    }
 
     public String getNombrecurso() {
         return nombrecurso;
@@ -58,14 +65,6 @@ public class Curso {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-
-    public String getNumeroestudiantes() {
-        return numeroestudiantes;
-    }
-
-    public void setNumeroestudiantes(String numeroestudiantes) {
-        this.numeroestudiantes = numeroestudiantes;
     }
 
     @Override

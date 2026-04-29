@@ -19,6 +19,7 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        iniciarsesion.setBackground(null);
     }
 
     /**
@@ -31,51 +32,69 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txtnombre = new javax.swing.JTextField();
         txtpassword = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        iniciarsesion = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/Sin título.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
+        txtnombre.setBorder(null);
         txtnombre.addActionListener(this::txtnombreActionPerformed);
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, 190, 30));
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 138, 190, 20));
 
-        txtpassword.setText("jPasswordField1");
-        getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 180, 30));
+        txtpassword.setBorder(null);
+        txtpassword.addActionListener(this::txtpasswordActionPerformed);
+        getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 190, 20));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 180, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\samue\\Desktop\\Programar\\UniversidadEjercicio\\Iniciar sesión.jpg")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 410, 360));
+
+        iniciarsesion.setBorder(null);
+        iniciarsesion.addActionListener(this::iniciarsesionActionPerformed);
+        getContentPane().add(iniciarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 240, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarsesionActionPerformed
+        // TODO add your handling code here:
+        
+        String usuario = txtnombre.getText();
+        String password = txtpassword.getText();
+
+        if (usuario.isEmpty() || password.isEmpty()) {
+
+            JOptionPane.showMessageDialog(null, "Ingrese usuario y contraseña.");
+            
+        } else
+        {
+            if(usuario.equals("Usuario") && password.equals("12345") ) 
+            {
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                 PaginaPrincipal paginaprincipal = new PaginaPrincipal();
+                 paginaprincipal.setVisible(true);
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
+            }
+                
+            
+        }
+       
+        
+    }//GEN-LAST:event_iniciarsesionActionPerformed
 
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
         // TODO add your handling code here:
-        
-        String usuario = txtnombre.getText().trim();
-        String password = txtpassword.getText();
-
-        if (usuario.isEmpty() || password.isEmpty()) {
-
-            JOptionPane.showMessageDialog(this, "Ingrese usuario y contraseña.");
-            return;
-        }
-        PaginaPrincipal paginaprincipal = new PaginaPrincipal();
-        paginaprincipal.setVisible(true);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_txtpasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,7 +122,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton iniciarsesion;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtnombre;

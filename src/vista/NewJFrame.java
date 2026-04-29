@@ -36,6 +36,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtpassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         iniciarsesion = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         jTextField1.setText("jTextField1");
 
@@ -56,6 +57,7 @@ public class NewJFrame extends javax.swing.JFrame {
         iniciarsesion.setBorder(null);
         iniciarsesion.addActionListener(this::iniciarsesionActionPerformed);
         getContentPane().add(iniciarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 240, 40));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 320, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,6 +83,7 @@ public class NewJFrame extends javax.swing.JFrame {
             else {
                 JOptionPane.showMessageDialog(null, "Su usuario o contraseña es incorrecto");
             }
+            //aaa
                 
             
         }
@@ -124,6 +127,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton iniciarsesion;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JPasswordField txtpassword;
